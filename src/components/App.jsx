@@ -4,9 +4,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <header>Header should be here</header>
+        <header>Header</header>
         {this.props.children}
-        <footer>Footer should be here</footer>
+        <footer>Footer</footer>
       </div>
     );
   }
