@@ -1,0 +1,24 @@
+header, footer {
+  margin: 0;
+  text-align: center;
+  padding: 10px;
+}
+
+header {
+  margin-bottom: 20px;
+  background-color: #eeeeee;
+}
+
+footer {
+  margin-top: 20px;
+  background-color: #eeeeee;
+}
+
+.new-post {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.new-post .title {
+  text-align: center;
+}

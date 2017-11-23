@@ -1,12 +1,27 @@
 import React, { Component} from 'react';
-import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form'
 
-class NewPost extends Component {
-  render() {
-    return (
-      <div>New Post</div>
-    );
-  }
+const NewPost = ({ handleSubmit }) => {
+  return (
+    <form onSubmit={handleSubmit} className="new-post">
+      <h3 className="title">Create a new Post!</h3>
+      <div className="form-group">
+        <label htmlFor="title">Title</label>
+        <Field name="title" component="input" type="text" className="form-control" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="categories">Categories</label>
+        <Field name="categories" component="input" type="text" className="form-control" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="contents">Contents</label>
+        <Field name="contents" component="textarea" className="form-control" />
+      </div>
+      <button type="submit" className="btn btn-primary">Submit</button>
+    </form>
+  );
 }
 
-export default NewPost;
+export default reduxForm({
+  form: 'NewPost'
+})(NewPost);
