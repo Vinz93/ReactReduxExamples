@@ -1,7 +1,9 @@
 import React, { Component} from 'react';
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm } from 'redux-form';
+import { createPost } from '../actions';
 
-const NewPost = ({ handleSubmit }) => {
+const NewPost = (props) => {
+  const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit} className="new-post">
       <h3 className="title">Create a new Post!</h3>
@@ -14,8 +16,8 @@ const NewPost = ({ handleSubmit }) => {
         <Field name="categories" component="input" type="text" className="form-control" />
       </div>
       <div className="form-group">
-        <label htmlFor="contents">Contents</label>
-        <Field name="contents" component="textarea" className="form-control" />
+        <label htmlFor="content">Content</label>
+        <Field name="content" component="textarea" className="form-control" />
       </div>
       <button type="submit" className="btn btn-primary">Submit</button>
     </form>
@@ -23,5 +25,6 @@ const NewPost = ({ handleSubmit }) => {
 }
 
 export default reduxForm({
-  form: 'NewPost'
+  form: 'NewPost',
+  onSubmit: createPost,
 })(NewPost);
