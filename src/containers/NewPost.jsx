@@ -1,13 +1,18 @@
 import React, { Proptypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 import { createPost } from '../actions';
 import FormField from '../components/FormField';
+const wrapFun = (fn) => (props) => {
+  fn(props);
+  browserHistory.push('/');
+};
+
 
 const NewPost = ({ handleSubmit }) => {
   return (
-    <form onSubmit={handleSubmit} className="new-post">
+    <form onSubmit={wrapFun(handleSubmit)} className="new-post">
       <h3 className="title">Create a new Post!</h3>
       <Field name="title" label="Title" component={FormField} type="text"  />
       <Field name="categories" label="Categories" component={FormField} type="text"  />
