@@ -1,4 +1,4 @@
-import FETCH_POSTS from '../actions';
+import { FETCH_POSTS } from '../actions';
 
 const posts = (state = { all: [], post: null }, action) => {
   switch (action.type) {

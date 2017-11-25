@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Proptypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router';
 
 import { createPost } from '../actions';
 import FormField from '../components/FormField';
 
-const NewPost = (props) => {
-  const { handleSubmit } = props;
+const NewPost = ({ handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit} className="new-post">
       <h3 className="title">Create a new Post!</h3>
@@ -13,6 +13,7 @@ const NewPost = (props) => {
       <Field name="categories" label="Categories" component={FormField} type="text"  />
       <Field name="content" label="Content" component={FormField} type="text" textarea={true} />
       <button type="submit" className="btn btn-primary">Submit</button>
+      <Link to="/" className="btn btn-danger">Cancel</Link>
     </form>
   );
 }
