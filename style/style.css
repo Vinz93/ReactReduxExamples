@@ -22,3 +22,7 @@ footer {
 .new-post .title {
   text-align: center;
 }
+
+.form-group .form-alert {
+  color: red;
+}
